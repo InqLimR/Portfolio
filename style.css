@@ -1,0 +1,546 @@
+/* ===== Сброс и переменные ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --border: #e2e8f0;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --radius: 16px;
+  --transition: 0.2s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== Типографика ===== */
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ===== Кнопки ===== */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  border: 2px solid transparent;
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* ===== Навигация ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.nav__logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.nav__list {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav__link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color var(--transition);
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width var(--transition);
+}
+
+.nav__link:hover {
+  color: var(--primary);
+}
+
+.nav__link:hover::after {
+  width: 100%;
+}
+
+/* ===== Hero (уменьшенная высота) ===== */
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+  padding: 4rem 0;
+}
+
+.hero__content {
+  margin: 0 auto;
+}
+
+.hero__title {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  color: var(--text);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.hero__subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  min-height: 2em;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+/* ===== Секции ===== */
+.section {
+  padding: 6rem 0;
+}
+
+.section__title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section__title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 60px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+/* ===== Bento-сетка (общие стили) ===== */
+.bento-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.bento-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+/* ===== О себе (специфическая Bento-сетка) ===== */
+.about__grid {
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: auto auto;
+}
+
+.about__text {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+}
+
+.about__text p {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.8rem;
+  align-items: baseline;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.about__text i {
+  color: var(--primary);
+  width: 24px;
+  text-align: center;
+}
+
+/* Стат-карточки */
+.stat-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Две маленькие карточки внизу слева */
+.about__grid .stat-card:nth-child(2) {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.about__grid .stat-card:nth-child(3) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+/* Высокая карточка справа */
+.stat-card--tall {
+  grid-column: 3 / 4;
+  grid-row: 1 / 3;
+}
+
+.stat-card__number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.stat-card__label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.3rem;
+}
+
+/* ===== Навыки ===== */
+.skills__grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.skill-item {
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.skill-item__icon {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.skill-item h3 {
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.skill-bar {
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 0;
+  transition: width 1s ease;
+}
+
+/* ===== Проекты ===== */
+.projects__grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Первая карточка (широкая) */
+.project-card--wide {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.project-card--wide .project-card__preview {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius);
+  background: #f0f4ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-card--wide .project-card__icon {
+  font-size: 2.5rem;
+}
+
+.project-card__body {
+  flex: 1;
+}
+
+/* Обычные карточки проектов */
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card .project-card__preview {
+  width: 70px;
+  height: 70px;
+  background: #f0f4ff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+
+.project-card__icon {
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+.project-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.project-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-card__tags span {
+  background: #e0e7ff;
+  color: var(--primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* ===== Контакты ===== */
+.contact__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.contact__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.8rem 1.8rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+
+.contact__link i {
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+.contact__link:hover {
+  background: #f8fafc;
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.contact__note {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.contact__note i {
+  color: var(--primary);
+}
+
+/* ===== Подвал ===== */
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  background: var(--surface);
+}
+
+/* ===== Анимация появления ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Адаптивность ===== */
+
+/* Планшеты (768px – 1024px) */
+@media (max-width: 1024px) {
+  .about__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .about__text {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .about__grid .stat-card:nth-child(2),
+  .about__grid .stat-card:nth-child(3),
+  .stat-card--tall {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .about__grid .stat-card {
+    grid-column: span 1;
+  }
+
+  .stat-card--tall {
+    grid-row: auto;
+  }
+
+  .projects__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .project-card--wide {
+    grid-column: 1 / -1;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-card--wide .project-card__preview {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Телефоны (< 768px) */
+@media (max-width: 768px) {
+  .nav__list {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .hero__title {
+    font-size: 2.5rem;
+  }
+
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card--wide {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-card--wide .project-card__preview {
+    width: 60px;
+    height: 60px;
+  }
+
+  .contact__links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact__link {
+    justify-content: center;
+  }
+}
