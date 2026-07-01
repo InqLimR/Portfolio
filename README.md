@@ -31,7 +31,7 @@
 
 *   <i class="fa-brands fa-github"></i> **GitHub:** [InqLimR](https://github.com/InqLimR)
 *   <i class="fa-brands fa-discord"></i> **Discord:** InqLimR
-*   <i class="fa-solid fa-envelope"></i> **Email:** *Твоя официальная почта*
+*   <i class="fa-solid fa-envelope"></i> **Email:** *hi.alexander.dev@gmail.com*
 
 ---
 
