@@ -16,12 +16,18 @@
   <header class="header">
     <nav class="nav container">
       <a href="#home" class="nav__logo">ALEX.DEV</a>
-      <ul class="nav__list">
-        <li><a href="#about" class="nav__link">О себе</a></li>
-        <li><a href="#skills" class="nav__link">Навыки</a></li>
-        <li><a href="#projects" class="nav__link">Проекты</a></li>
-        <li><a href="#contact" class="nav__link">Контакты</a></li>
-      </ul>
+      <div class="nav__controls">
+        <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="lang-toggle" id="langToggle" aria-label="Switch language">RU</button>
+        <ul class="nav__list">
+          <li><a href="#about" class="nav__link" data-i18n="nav_about">О себе</a></li>
+          <li><a href="#skills" class="nav__link" data-i18n="nav_skills">Навыки</a></li>
+          <li><a href="#projects" class="nav__link" data-i18n="nav_projects">Проекты</a></li>
+          <li><a href="#contact" class="nav__link" data-i18n="nav_contact">Контакты</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
@@ -29,33 +35,33 @@
     <!-- Главный экран -->
     <section id="home" class="hero">
       <div class="hero__content container">
-        <h1 class="hero__title">Александр</h1>
+        <h1 class="hero__title" data-i18n="hero_name">Александр</h1>
         <p class="hero__subtitle" id="typewriter"></p>
-        <a href="#contact" class="btn btn--primary">Связаться</a>
+        <a href="#contact" class="btn btn--primary" data-i18n="hero_cta">Связаться</a>
       </div>
     </section>
 
     <!-- О себе -->
     <section id="about" class="about section fade-in">
       <div class="container">
-        <h2 class="section__title">О себе</h2>
+        <h2 class="section__title" data-i18n="about_title">О себе</h2>
         <div class="bento-grid about__grid">
-          <div class="bento-card about__text">
-            <p><i class="fa-solid fa-user-graduate"></i> Студент колледжа по направлению «Компьютерная инженерия». Изучаю фронтенд-разработку, углубляюсь в современные технологии и принципы построения интерфейсов.</p>
-            <p><i class="fa-solid fa-gamepad"></i> В свободное время увлекаюсь видеоиграми (Valorant, Minecraft) и слушаю lo‑fi / drum’n’bass. Это помогает переключиться и поддерживать творческий тонус.</p>
-            <p><i class="fa-solid fa-code"></i> Верю, что хороший код — чистый, поддерживаемый и ориентированный на пользователя. Сейчас активно изучаю React и анимации.</p>
+          <div class="bento-card about__text" data-i18n="about_text">
+            <p><i class="fa-solid fa-user-graduate"></i> <span data-i18n="about_edu">Студент колледжа по направлению «Компьютерная инженерия». Изучаю фронтенд-разработку, углубляюсь в современные технологии и принципы построения интерфейсов.</span></p>
+            <p><i class="fa-solid fa-gamepad"></i> <span data-i18n="about_hobby">В свободное время увлекаюсь видеоиграми (Valorant, Minecraft) и слушаю lo‑fi / drum’n’bass. Это помогает переключиться и поддерживать творческий тонус.</span></p>
+            <p><i class="fa-solid fa-code"></i> <span data-i18n="about_belief">Верю, что хороший код — чистый, поддерживаемый и ориентированный на пользователя. Сейчас активно изучаю React и анимации.</span></p>
           </div>
           <div class="bento-card stat-card">
             <span class="stat-card__number">2+</span>
-            <span class="stat-card__label">года обучения</span>
+            <span class="stat-card__label" data-i18n="stat_years">года обучения</span>
           </div>
           <div class="bento-card stat-card">
             <span class="stat-card__number">15+</span>
-            <span class="stat-card__label">учебных проектов</span>
+            <span class="stat-card__label" data-i18n="stat_projects">учебных проектов</span>
           </div>
           <div class="bento-card stat-card stat-card--tall">
             <span class="stat-card__number">∞</span>
-            <span class="stat-card__label">часов практики</span>
+            <span class="stat-card__label" data-i18n="stat_hours">часов практики</span>
           </div>
         </div>
       </div>
@@ -64,7 +70,7 @@
     <!-- Навыки -->
     <section id="skills" class="skills section fade-in">
       <div class="container">
-        <h2 class="section__title">Навыки</h2>
+        <h2 class="section__title" data-i18n="skills_title">Навыки</h2>
         <div class="bento-grid skills__grid">
           <div class="bento-card skill-item">
             <i class="fa-brands fa-html5 skill-item__icon"></i>
@@ -98,17 +104,18 @@
     <!-- Проекты (заглушка) -->
     <section id="projects" class="projects section fade-in">
       <div class="container">
-        <h2 class="section__title">Проекты</h2>
+        <h2 class="section__title" data-i18n="projects_title">Проекты</h2>
         <div class="bento-grid projects__grid">
           <article class="bento-card project-card project-card--wide">
             <div class="project-card__preview">
               <i class="fa-solid fa-clock project-card__icon"></i>
             </div>
             <div class="project-card__body">
-              <h3>Скоро здесь появятся мои проекты</h3>
-              <p>Я активно работаю над несколькими идеями. Пока портфолио пополняется — следите за обновлениями на GitHub.</p>
+              <h3 data-i18n="proj_main_title">Скоро здесь появятся мои проекты</h3>
+              <p data-i18n="proj_main_desc">Я активно работаю над несколькими идеями. Пока портфолио пополняется — следите за обновлениями на GitHub.</p>
               <div class="project-card__tags">
-                <span>В процессе</span><span>Планируется</span>
+                <span data-i18n="proj_tag_process">В процессе</span>
+                <span data-i18n="proj_tag_planned">Планируется</span>
               </div>
             </div>
           </article>
@@ -117,10 +124,10 @@
               <i class="fa-solid fa-code-branch project-card__icon"></i>
             </div>
             <div class="project-card__body">
-              <h3>В разработке</h3>
-              <p>Пара учебных проектов, которые скоро увидит свет.</p>
+              <h3 data-i18n="proj_dev_title">В разработке</h3>
+              <p data-i18n="proj_dev_desc">Пара учебных проектов, которые скоро увидит свет.</p>
               <div class="project-card__tags">
-                <span>Скоро</span>
+                <span data-i18n="proj_tag_soon">Скоро</span>
               </div>
             </div>
           </article>
@@ -129,10 +136,10 @@
               <i class="fa-solid fa-lightbulb project-card__icon"></i>
             </div>
             <div class="project-card__body">
-              <h3>Идеи</h3>
-              <p>Экспериментирую с React, API и игровыми механиками.</p>
+              <h3 data-i18n="proj_ideas_title">Идеи</h3>
+              <p data-i18n="proj_ideas_desc">Экспериментирую с React, API и игровыми механиками.</p>
               <div class="project-card__tags">
-                <span>Планируется</span>
+                <span data-i18n="proj_tag_planned">Планируется</span>
               </div>
             </div>
           </article>
@@ -143,7 +150,7 @@
     <!-- Контакты -->
     <section id="contact" class="contact section fade-in">
       <div class="container">
-        <h2 class="section__title">Контакты</h2>
+        <h2 class="section__title" data-i18n="contact_title">Контакты</h2>
         <div class="contact__links">
           <a href="mailto:hi.alexander.dev@gmail.com" class="contact__link">
             <i class="fa-solid fa-envelope"></i> hi.alexander.dev@gmail.com
@@ -152,11 +159,11 @@
             <i class="fa-brands fa-github"></i> github.com/alexander-dev-ua
           </a>
           <a href="https://discord.com/invite/UEKhTajPz2" target="_blank" rel="noopener" class="contact__link">
-            <i class="fa-brands fa-discord"></i> Discord сервер
+            <i class="fa-brands fa-discord"></i> <span data-i18n="discord_server">Discord сервер</span>
           </a>
         </div>
         <p class="contact__note">
-          <i class="fa-solid fa-reply"></i> Обычно отвечаю в течение 1–2 часов в будние дни.
+          <i class="fa-solid fa-reply"></i> <span data-i18n="reply_time">Обычно отвечаю в течение 1–2 часов в будние дни.</span>
         </p>
       </div>
     </section>
@@ -164,7 +171,7 @@
 
   <footer class="footer">
     <div class="container">
-      <p>© 2026 ALEX.DEV — создаю удобные интерфейсы</p>
+      <p data-i18n="footer_text">© 2026 ALEX.DEV — создаю удобные интерфейсы</p>
     </div>
   </footer>
 
